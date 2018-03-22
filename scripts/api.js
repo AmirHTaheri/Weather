@@ -122,13 +122,8 @@ $(document).ready(function () {
                     cell = row.insertCell(-1);
                     switch (i) {
                         case 0:
-                            if (j > 0 && wedData[j-1].main.temp_max < wedData[j ].main.temp_max) {
-                                cell.innerHTML = wedData[j].dt_txt.substr(0, 10);
-                                console.log(cell.innerHTML);
-                            } else {
-                                cell.innerHTML = wedData[j - 1].dt_txt.substr(0, 10);
-                                console.log(cell.innerHTML.substr(0, 10));
-                            }
+                            cell.innerHTML = wedData[j].dt_txt.substr(0, 10);
+                            console.log(cell.innerHTML);
                             break;
                         case 1:
                             if ( j>5 && wedData[j].main.temp_min > wedData[j - 6].main.temp_min) {
@@ -174,12 +169,6 @@ $(document).ready(function () {
 
         var myContainer = document.getElementById("myContainer");
         myContainer.appendChild(table);
-        //$(function () {
-        //    $("table")
-        //        .tablesorter({ widthFixed: true, widgets: ['zebra'] })
-        //        .tablesorterPager({ container: $("#aucPager") });
-
-        //});
     };
     window.onload = loadAjaxCall;
 });

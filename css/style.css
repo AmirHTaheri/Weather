@@ -351,7 +351,7 @@ input[type="submit"] {
 
 @media (min-width: 480px) {
     .header-wrapper {
-        height: 500px;
+        /*height: 500px;*/
     }
 
     .header-content h1 {
@@ -400,7 +400,7 @@ input[type="submit"] {
     }
 
     .header-wrapper {
-        height: 600px;
+        /*height: 600px;*/
         padding: 0;
     }
 
@@ -435,7 +435,7 @@ input[type="submit"] {
 }
 
 @media (min-width: 960px) {
-    .header-wrapper {
+    /*.header-wrapper {
         height: 700px;
-    }
+    }*/
 }
