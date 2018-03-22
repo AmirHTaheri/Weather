@@ -4,7 +4,7 @@ $(document).ready(function () {
     var col = [];
     var url1 = "https://api.openweathermap.org/data/2.5/forecast?q=";
     var url2 = "&APPID=9f9b547c3aea1a9965fd3581c1acc432&units=metric";
-    var url = "http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&APPID=caf10d0d6f3972d8459bb50ae245136d&units=metric";
+    var url = "https://api.openweathermap.org/data/2.5/forecast?q=Stockholm&APPID=caf10d0d6f3972d8459bb50ae245136d&units=metric";
     
     /******************************************************************/
     // ReSharper disable once JoinDeclarationAndInitializerJs
