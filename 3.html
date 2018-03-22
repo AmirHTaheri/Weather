@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <!--<script src="scripts/jquery-latest.js"></script>-->
+    <!--<script src="scripts/api.js"></script>-->
+
+</head>
+<body>
+    <div id="myContainer" class="container">
+        <table id="example" class="display" style="width: 100%">
+            <thead>
+                <tr>
+                    <td>AuktionID</td>
+                    <td>Titel</td>
+                    <td>Beskrivning</td>
+                    <td>StartDatum</td>
+                    <td>SlutDatum</td>
+                    <td>Gruppkod</td>
+                    <td>Utropspris</td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>AuktionID</td>
+                    <td>Titel</td>
+                    <td>Beskrivning</td>
+                    <td>StartDatum</td>
+                    <td>SlutDatum</td>
+                    <td>Gruppkod</td>
+                    <td>Utropspris</td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script src="scripts/dataSorter.js"></script>
+    <script>
+        $('#example').DataTable();
+    </script>
+
+</body>
+</html>

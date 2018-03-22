@@ -1,0 +1,71 @@
+﻿- Bra meny, är däremot inget personligt fan utav den röda färgen vid hover
+
+I have taken the red color away!
+
+- Tror inte det är tänkt att man ska modifiera Jespers logotyp utan använda den as-is.
+
+I used the original logo!
+
+- Innehåll som inte ska/behöver vara med; 
+    "Innehåll" ("Startup-företaget [...]"), 
+    Slogan - texten (A workplace that is a alive create ideas that live on) ska vara med, men jag tror inte det ska vara ett eget "kapitel". 
+    https://ux.stackexchange.com/questions/47985/slogan-positioning-on-a-website
+    Logotyp - Tror tanken är att man ska välja en variant och inte länka repo:t med de olika versionerna.
+
+I changed the new version accordingly
+
+
+- Färger: Tror det skulle vara bättre med mer enhetliga färger, och tycker inte att grå bakgrund med svart text ser så bra ut/dåligt kontrast - kan göra det lite svårläst.
+    Du har däremot använt grönt i bra form. 
+
+I used better colors and background
+
+- Medan "Partners" känns logiskt vet jag inte riktigt varför du har med dom i här. Även länkar som inte leder någonstans. Likaså i footer - förstår inte färgerna eller varför
+    dom är där när dom i nuläget inte har någon funktion. Samma sak med aside - events.
+
+I removed the partners part and all the unnecessary parts!
+
+*HTML:*
+- Du har glömt ta bort grejer som inte används. (t.ex. line 14 (gradient klass finns inte), 19, 23)
+
+I removed the unnecessary classes!
+
+
+- Missat lite indenting (line 19/21 - denna kan bero på att du hade tänkt ta bort den oanvända div:en dock?)
+    - Vet inte om det är rätt eller fel, men för att göra koden mer lättläst hade jag lämnat <li> och <a> element på samma rad.
+
+On the same line now!
+
+
+- Behöver inte använda tomma <span> för att sätta id, går bra att göra det i vilken tag som helst (dvs typ h1).
+
+removed the empty spans!
+
+- Hade räckt med en footer-child dev i footer.
+- i <form> har du inte använd labels rätt, då du inte har bytt namn på "for" så alla är "kopplade" till name just nu.
+
+Fixed!
+
+- i <form> har du inte heller använt rätt type, då alla är text just nu (https://www.w3schools.com/tags/att_input_type.asp)
+Fixed!
+
+*CSS:*
+- Varför 2 olika filer för en html fil?
+
+Now is one file!
+
+- byt ut px värden till antingen % eller rem/em
+
+I converted to rem, except the media!
+
+- Jag hittar ingen koppling till klass .navigation, jag antar att den blivit utbytt till .nav, isåfall missat att ta bort.
+
+I rearranged the names!
+
+- tom .footer klass
+
+Removed!
+
+- Personligen skulle jag föredra om namnen var tydligare, samt att flödet av CSS:en är i samma flow som HTML (header först, sedan meny, etc).
+
+I improved the naming and the whole website!
