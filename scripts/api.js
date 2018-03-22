@@ -4,7 +4,7 @@ $(document).ready(function () {
     var numberOfSections = 3;
     var jsonData = null;
     var col = [];
-    var url = "scripts/citylist.json";
+    var url = "https://amirhtaheri.github.io/Weather/scripts/citylist.json";
     var _url = "https://amirhtaheri.github.io/Auction/scripts/auction.json";
     var urlOld = "https://nackowskis.azurewebsites.net/api/Auktion/200/";
 
