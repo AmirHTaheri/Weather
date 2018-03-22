@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Auctions</title>
+    <title>Weather</title>
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />-->
 
     <!-- Google Fonts -->
@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <nav class="navigation-wrapper">
+    <!--<nav class="navigation-wrapper">
         <div class="navigation-content">
             <div class="logo-wrapper">
                 <a href="index.html"><img src="pics/logo/auction-logo.png" class="logo" alt="Logo"></a>
@@ -49,18 +49,17 @@
                 </a>
             </div>
         </div>
-    </nav>
+    </nav>-->
 
 <header class="header-wrapper">
-    <div class="header-content">
-    <h1>Nackowskis auktionshus</h1>
-        <!--<h2>The best auction in town</h2>-->
-    </div>
+    <!--<div class="header-content">
+        <h2>The best auction in town</h2>
+    </div>-->
 </header>
 
     <main class="page-wrapper">
-        <section class="section-wrapper mission-wrapper" id="Start">
-            <h2>Important to read</h2>
+        <!--<section class="section-wrapper mission-wrapper" id="Start">
+            <h2>Weather forecast</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
             when an unknown printer took a galley of type and scrambled it to make a type
@@ -68,78 +67,26 @@
         </section>
 
         <section class="section-wrapper" id="auctions">
-            <h2>Auctions</h2>
-        </section>
+            <h2>Today</h2>
+        </section>-->
 
         <section class="section-wrapper" id="Adds">
-            <h2>Announcements</h2>
+            <h2>Forecasts</h2>
 
             <div id="myContainer" class="container">
                 <!--<input type="search" id="myInput" onkeyup="searchFunction(id)" placeholder="Search for id.." title="Type in a id">-->
-                <input type="search" id="Titel" onkeyup="searchFunction(id)" placeholder="Search for Titel.." title="Type in a title">
-                <input type="search" id="Beskrivning" onkeyup="searchFunction(id)" placeholder="Search for Description.." title="Type in a description">
-                <input type="search" id="Gruppkod" onkeyup="searchFunction(id)" placeholder="Search for Group code.." title="Type in a code">
-                <input type="search" id="Price" onkeyup="searchFunction(id)" placeholder="Search for Price.." title="Type in a price">
-
-
+                <input type="search" id="searchCity" placeholder="Which city" >
+                <button id="btn">Find</button>
+                <br/>
+                <label>Weather forecast for </label> 
+                <input id="searchBox" type="text" value="Stockholm"/>
             </div>
         </section>
 
-        <section class="section-wrapper">
-
-            <div style="position:static;">
-                <div id="aucPager" style="position: relative;">
-                    <form>
-                        <img src="icons/first.png" class="first" />
-                        <img src="icons/prev.png" class="prev" />
-                        <input type="text" class="pagedisplay" />
-                        <img src="icons/next.png" class="next" />
-                        <img src="icons/last.png" class="last" />
-                        <select class="pagesize">
-                            <option selected="selected" value="10">10</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-
-        </section>
-
-
-        <section class="section-wrapper contact-wrapper" id="contact">
-            <h2>Contact Us</h2>
-            <div class="section-row">
-                <div class="col-1-2">
-                    <h3>Contact information</h3>
-                    <p><a href="#">Tel: +46 08 1234567</a></p>
-                    <p><a href="#">Email: customer@nakowkis.se</a></p>
-                    <h3>Visiting address</h3>
-                    <p>Sitrunavägen 14</p>
-                    <p>23234 Stockholm</p>
-                </div>
-                <div class="col-1-2">
-                    <form class="contact-form" method="POST">
-                        <label for="name">Name*</label>
-                        <input type="text" name="name" id="name" required>
-                        <label for="number">Phone number*</label>
-                        <input type="tel" name="number" id="number" required>
-                        <label for="email">E-mail*</label>
-                        <input type="email" name="email" id="email" required>
-                        <label for="company">Company*</label>
-                        <input type="text" name="company" id="company" required>
-                        <label for="textarea">Message*</label>
-                        <textarea id="textarea" required></textarea>
-                        <input type="submit" class="submit" value="Submit">
-                    </form>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="footer-wrapper">
-        <div class="footer-content">
+        <!--<div class="footer-content">
             <div class="footer-column">
                 <h4>Contact</h4>
                 <p>
@@ -163,7 +110,7 @@
             <div class="copyright">
                 <p>© 2018 Nackowkis</p>
             </div>
-        </div>
+        </div>-->
     </footer>
 
 

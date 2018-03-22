@@ -1,102 +1,55 @@
 
 $(document).ready(function () {
-    var picSrc = "pics/Auction/items/items.jpg";
-    var numberOfSections = 3;
     var jsonData = null;
     var col = [];
-    var url = "https://amirhtaheri.github.io/Weather/scripts/citylist.json";
-    var _url = "https://amirhtaheri.github.io/Auction/scripts/auction.json";
-    var urlOld = "https://nackowskis.azurewebsites.net/api/Auktion/200/";
+    var url1 = "http://api.openweathermap.org/data/2.5/forecast?q=";
+    var url2 = "&APPID=9f9b547c3aea1a9965fd3581c1acc432&units=metric";
+    var url = "http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&APPID=caf10d0d6f3972d8459bb50ae245136d&units=metric";
+    //var url = "https://amirhtaheri.github.io/Weather/scripts/citylist.json";
+    //var _url = "https://amirhtaheri.github.io/Auction/scripts/auction.json";
+    //var url = "https://nackowskis.azurewebsites.net/api/Auktion/200/";
 
     /******************************************************************/
     // ReSharper disable once JoinDeclarationAndInitializerJs
     var createTable;
-    var createSection;
-
     var loadAjaxCall = function () {
+        
         var myRequest = new XMLHttpRequest();
         myRequest.open('GET', url);
         myRequest.onload = function () {
             jsonData = JSON.parse(myRequest.responseText);
-            createSection();
             createTable();
         };
         myRequest.send();
     };
 
-    createSection = function () {
+    btn.addEventListener("click", function () {
+        var searchBox = document.getElementById("searchBox");
+        var city = document.getElementById('searchCity').value;
+        searchBox.value = city;
+        var newUrl = url1 + city + url2;
 
-        var bildDiv;
-        var parentBildDiv;
-        var divImg;
+        // Deleting the old table before creating the new one
+        var element = document.getElementById("myTable");
+        //debugger;
+        element.outerHTML = "";
+        delete element;
 
-        var childDivId;
-        var divId;
-        var hashId;
-        var imgId;
-        var h3, h4;
-        var p;
-
-        for (var i = 0; i < numberOfSections; i++) {
-            parentBildDiv = document.createElement("div");
-            divId = "section-row" + i;
-            parentBildDiv.setAttribute("id", divId);
-            parentBildDiv.setAttribute("class", "section-row");
-            var sectionWrapper = document.getElementById("auctions");
-            sectionWrapper.appendChild(parentBildDiv);
-
-            for (var j = 0; j < 3; j++) {
-                bildDiv = document.createElement("div");
-                childDivId = "auction-content" + +i + j;
-                bildDiv.setAttribute("id", childDivId);
-                bildDiv.setAttribute("class", "col-1-3");
-                bildDiv.classList.add('auction-content');
-                divId = "section-row" + i;
-                var auctionContent = document.getElementById(divId);
-                auctionContent.appendChild(bildDiv);
-
-
-                divImg = document.createElement("img");
-                divImg.setAttribute("class", "created-img");
-                divImg.setAttribute("src", picSrc);
-                divImg.setAttribute("height", "200");
-                divImg.setAttribute("width", "150");
-
-                var img = document.getElementById(childDivId);
-                img.appendChild(divImg);
-
-
-                hashId = "#" + childDivId;
-                imgId = img + j;
-
-                h3 = document.createElement("h3");
-                h3.setAttribute("border-bottom", "1px solid #eae8e8");
-                h3.innerHTML = jsonData[j].Titel;
-                $(hashId).append(h3);
-
-                p = document.createElement("p");
-                p.innerHTML = jsonData[j].Beskrivning;
-                $(hashId).append(p);
-
-                h4 = document.createElement("h4");
-                h4.setAttribute("border-bottom", "1px solid #eae8e8");
-                h4.innerHTML = "Highest bid: " + jsonData[j].Utropspris;
-                $(hashId).append(h4);
-
-
-                $(hashId).prepend(divImg);
-
-
-            }
-
-        }
-
-    };
+        var myRequest = new XMLHttpRequest();
+        myRequest.open('GET', newUrl);
+        myRequest.onload = function () {
+            jsonData = JSON.parse(myRequest.responseText);
+            //createSection();
+            //debugger;
+            createTable();
+        };
+        myRequest.send();
+    });
 
     createTable = function () {
         var i;
-        for (i = 0; i < jsonData.length; i++) {
-            let data = jsonData[i];
+        for (i = 0; i < jsonData.list.length; i++) {
+            let data = jsonData.list[i];
             for (var key in data) {
                 if (data.hasOwnProperty(key)) {
                     if (col.indexOf(key) === -1) {
@@ -122,61 +75,114 @@ $(document).ready(function () {
 
         var row = thead.insertRow(-1);
         var cell;
-        var img;
 
-        for (i = 0; i < col.length + 1; i++) {
-            if (i === 3 || i === 4)
-                continue;
+        for (i = 0; i < col.length ; i++) {
+
             cell = row.insertCell(-1);
 
-            if (i === 0) {
-                cell.innerHTML = "Item";
-            } else if (i < col.length) {
-                cell.innerHTML = col[i];
-            } else {
-                cell.innerHTML = "Can bid?";
+            switch(i) {
+                case 0:
+                    cell.innerHTML = "Date";
+                    break;
+                case 1:
+                    cell.innerHTML = "Lowest Temp";
+                    break;
+                case 2:
+                    cell.innerHTML = "highest Temp";
+                    break;
+                case 3:
+                    cell.innerHTML = "Pressure";
+                    break;
+                case 4:
+                    cell.innerHTML = "humidity";
+                    break;
+                case 5:
+                    cell.innerHTML = "Wind Speed";
+                    break;
+                case 6:
+                    cell.innerHTML = "Rain";
+                    break;
+                case 7:
+                    cell.innerHTML = "Description";
+                    break;
+                case 8:
+                    cell.innerHTML = "City";
+                    break;
             }
-            // Sorting from header
-            let sort = "sortTable(" + i.toString() + ")";
-            cell.setAttribute("onclick", sort);
+
         }
 
         var tBody = document.createElement("tbody");
         table.appendChild(tBody);
 
-        for (var j = 0; j < jsonData.length; j++) {
-            row = tBody.insertRow(-1);
-            for (i = 0; i < col.length + 1; i++) {
-                if (i === 3 || i === 4)
-                    continue;
-
-                cell = row.insertCell(-1);
-
-                if (i === 0) {
-                    img = document.createElement('img');
-                    img.src = "pics/cars/car.jpg";
-                    cell.appendChild(img);
-                } else if (i === col.length-1) {
-                    cell.innerHTML = jsonData[j][col[i]] + " Kr";
-                } else if (i < col.length) {
-                    cell.innerHTML = jsonData[j][col[i]];
+        var wedData = jsonData.list;
+        for (var j = 0; j < wedData.length; j++) {
+            var str = wedData[j].dt_txt;
+            
+            if (str.includes("15:00:00")) {
+                row = tBody.insertRow(-1);
+                for (i = 0; i < col.length; i++) {
+                    cell = row.insertCell(-1);
+                    switch (i) {
+                        case 0:
+                            if (j > 0 && wedData[j-1].main.temp_max < wedData[j ].main.temp_max) {
+                                cell.innerHTML = wedData[j].dt_txt.substr(0, 10);
+                                console.log(cell.innerHTML);
+                            } else {
+                                cell.innerHTML = wedData[j - 1].dt_txt.substr(0, 10);
+                                console.log(cell.innerHTML.substr(0, 10));
+                            }
+                            break;
+                        case 1:
+                            if ( j>5 && wedData[j].main.temp_min > wedData[j - 6].main.temp_min) {
+                                cell.innerHTML = wedData[j-6].main.temp_min;
+                                console.log(cell.innerHTML);
+                            } else {
+                                cell.innerHTML = wedData[j].main.temp_min;
+                                console.log(cell.innerHTML);
+                            }
+                            break;
+                        case 2:
+                            if (j > 0 && wedData[j].main.temp_max > wedData[j - 1].main.temp_max) {
+                                cell.innerHTML = wedData[j].main.temp_max;
+                                console.log(cell.innerHTML);
+                            } else {
+                                cell.innerHTML = wedData[j - 1].main.temp_max;
+                                console.log(cell.innerHTML);
+                            }
+                            break;
+                        case 3:
+                            cell.innerHTML = wedData[j].main.pressure;
+                            break;
+                        case 4:
+                            cell.innerHTML = wedData[j].main.humidity;
+                            break;
+                        case 5:
+                            cell.innerHTML = wedData[j].wind.speed;
+                            break;
+                        case 6:
+                            cell.innerHTML = wedData[j].weather[0].main;
+                            break;
+                        case 7:
+                            cell.innerHTML = wedData[j].weather[0].description;
+                            break;
+                        case 8:
+                            cell.innerHTML = jsonData.city.name;
+                            break;
+                    }
                 }
-                else {
-                    img = document.createElement('img');
-                    img.src = "pics/cellColor/red.png";
-                    cell.appendChild(img);
-                }
+
             }
         }
 
         var myContainer = document.getElementById("myContainer");
         myContainer.appendChild(table);
-        $(function () {
-            $("table")
-                .tablesorter({ widthFixed: true, widgets: ['zebra'] })
-                .tablesorterPager({ container: $("#aucPager") });
+        //$(function () {
+        //    $("table")
+        //        .tablesorter({ widthFixed: true, widgets: ['zebra'] })
+        //        .tablesorterPager({ container: $("#aucPager") });
 
-        });
+        //});
     };
     window.onload = loadAjaxCall;
 });
