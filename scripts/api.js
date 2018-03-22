@@ -5,10 +5,7 @@ $(document).ready(function () {
     var url1 = "http://api.openweathermap.org/data/2.5/forecast?q=";
     var url2 = "&APPID=9f9b547c3aea1a9965fd3581c1acc432&units=metric";
     var url = "http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&APPID=caf10d0d6f3972d8459bb50ae245136d&units=metric";
-    //var url = "https://amirhtaheri.github.io/Weather/scripts/citylist.json";
-    //var _url = "https://amirhtaheri.github.io/Auction/scripts/auction.json";
-    //var url = "https://nackowskis.azurewebsites.net/api/Auktion/200/";
-
+    
     /******************************************************************/
     // ReSharper disable once JoinDeclarationAndInitializerJs
     var createTable;
