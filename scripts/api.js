@@ -4,7 +4,7 @@ $(document).ready(function () {
     var col = [];
     var url1 = "https://api.openweathermap.org/data/2.5/forecast?q=";
     var url2 = "&APPID=9f9b547c3aea1a9965fd3581c1acc432&units=metric";
-    var url = "https://api.openweathermap.org/data/2.5/forecast?q=Stockholm&APPID=caf10d0d6f3972d8459bb50ae245136d&units=metric";
+    var url = "https://api.openweathermap.org/data/2.5/forecast?q=Stockholm&APPID=9f9b547c3aea1a9965fd3581c1acc432&units=metric";
     
     /******************************************************************/
     // ReSharper disable once JoinDeclarationAndInitializerJs
@@ -15,6 +15,7 @@ $(document).ready(function () {
         myRequest.open('GET', url);
         myRequest.onload = function () {
             jsonData = JSON.parse(myRequest.responseText);
+            debugger;
             createTable();
         };
         myRequest.send();
@@ -44,6 +45,7 @@ $(document).ready(function () {
     });
 
     createTable = function () {
+        debugger;
         var i;
         for (i = 0; i < jsonData.list.length; i++) {
             let data = jsonData.list[i];
@@ -66,6 +68,7 @@ $(document).ready(function () {
 
         table.setAttribute("id", "myTable");
 
+        debugger;
 
         var thead = table.createTHead();
         thead.setAttribute("class", "thead-light");
@@ -111,6 +114,7 @@ $(document).ready(function () {
 
         var tBody = document.createElement("tbody");
         table.appendChild(tBody);
+        debugger;
 
         var wedData = jsonData.list;
         for (var j = 0; j < wedData.length; j++) {
@@ -139,7 +143,11 @@ $(document).ready(function () {
                                 cell.innerHTML = wedData[j].main.temp_max;
                                 console.log(cell.innerHTML);
                             } else {
-                                cell.innerHTML = wedData[j - 1].main.temp_max;
+                                debugger;
+                                if (j > 0)
+                                    cell.innerHTML = wedData[j - 1].main.temp_max;
+                                else 
+                                    cell.innerHTML = wedData[j].main.temp_max;
                                 console.log(cell.innerHTML);
                             }
                             break;
@@ -166,7 +174,7 @@ $(document).ready(function () {
 
             }
         }
-
+        debugger;
         var myContainer = document.getElementById("myContainer");
         myContainer.appendChild(table);
     };
